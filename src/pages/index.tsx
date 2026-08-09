@@ -1,5 +1,8 @@
-import Hero from "../component/hero";
+import Success from "@/component/landing/success";
+import Hero from "../component/landing/hero";
 import { Geist, Geist_Mono } from "next/font/google";
+import About from "@/component/landing/about";
+import Features from "@/component/landing/features_section/features";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +23,11 @@ export default function Home() {
         >
           <main className="flex min-h-screen w-full flex-col items-center justify-between  sm:items-start">
             <Hero />
+            <Success/>
+            <About/>
+            <Features/>
+            {/* <ClassroomInterface/> */}
+           
           </main>
         </div>
   )
