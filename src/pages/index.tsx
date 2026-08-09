@@ -3,6 +3,8 @@ import Hero from "../component/landing/hero";
 import { Geist, Geist_Mono } from "next/font/google";
 import About from "@/component/landing/about";
 import Features from "@/component/landing/features_section/features";
+import TestimonialCard from "@/component/landing/testimonials";
+import NewsAndResourcesSection from "@/component/landing/news_resources_card";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +28,8 @@ export default function Home() {
             <Success/>
             <About/>
             <Features/>
-            {/* <ClassroomInterface/> */}
+            <TestimonialCard/>
+            <NewsAndResourcesSection/>
            
           </main>
         </div>
