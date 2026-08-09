@@ -46,8 +46,8 @@ const navbar = () => {
   </div>
   <div className="navbar-end lg:flex-1 gap-2 sticky top-0 z-50">
     {/* <div className="md:hidden "> */}
-    <a className="hidden md:inline-flex lg:inline-flex btn bg-white text-black border-0 rounded-full h-[35] transition hover:bg-black hover:text-white shadow-none">Login</a>
-    <a className="hidden md:inline-flex lg:inline-flex btn btn-neutral btn-outline rounded-2xl h-[35] bg-white/30 shadow-none border-none text-white">Sign up</a>
+    <a href='/login' className="hidden md:inline-flex lg:inline-flex btn bg-white text-black border-0 rounded-full h-[35] transition hover:bg-black hover:text-white shadow-none">Login</a>
+    <a href='/login' className="hidden md:inline-flex lg:inline-flex btn btn-neutral btn-outline rounded-2xl h-[35] bg-white/30 shadow-none border-none text-white hover:bg-white hover:text-black">Sign up</a>
     {/* </div> */}
     <div className="dropdown max-w-fit">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,8 +66,16 @@ const navbar = () => {
             </li>
           ))}
       <div className='md:hidden lg:hidden flex justify-center gap-2'>
-      <a className="btn bg-white text-black border-0 rounded-full h-[35] transition hover:bg-black hover:text-white shadow-none">Login</a>
-      <a className="btn btn-neutral btn-outline rounded-2xl h-[35] bg-white/30 shadow-none border-none text-white">Sign up</a>
+      <Link 
+      href= "/login"
+      className="btn bg-white text-black border-0 rounded-full h-[35] transition hover:bg-black hover:text-white shadow-none">
+        Login
+      </Link>
+      <Link
+      href= "/login"
+      className="btn btn-neutral btn-outline rounded-2xl h-[35] bg-white/30 shadow-none border-none text-white hover:bg-white hover:text-black">
+        Sign up
+        </Link>
       </div>
       </ul>
      
