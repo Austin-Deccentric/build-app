@@ -1,40 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# TOTC Landing Experience
 
-## Getting Started
+This repository contains a Next.js landing page for the TOTC online education platform. It is built with React, TypeScript, Tailwind CSS, DaisyUI, and modern Next.js page routing.
 
-First, run the development server:
+## Project Overview
+
+The app renders a marketing-driven landing page with the following sections:
+
+- Hero section with CTA buttons and animated imagery
+- Success/metrics section highlighting platform benefits
+- About section with instructor and student cards
+- Feature panels for classroom, assessments, discussions, and management
+- Testimonials section with user feedback and rating visuals
+- News and resources feed with feature article cards
+- Navigation bar with responsive mobile menu
+- Login/Register page with interactive form toggles
+
+## Key Technologies
+
+- Next.js 16.3.0
+- React 19.2.8
+- TypeScript 5
+- Tailwind CSS v4
+- DaisyUI 5
+- React Icons
+- Bun package manager configured in `package.json`
+
+## App Structure
+
+- `src/pages/` - top-level pages including home and login
+- `src/layout/` - global layout, navbar, and footer components
+- `src/component/landing/` - landing page sections and cards
+- `src/styles/globals.css` - Tailwind and DaisyUI theme setup
+- `public/images/` - image assets used across the UI
+
+## Available Pages
+
+- `/` - main landing page
+- `/login` - login/register experience
+
+## Local Development
+
+### Install dependencies
+
+If you are using Bun:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
+```
+
+If you prefer npm:
+
+```bash
+npm install
+```
+
+### Run the app locally
+
+```bash
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or with npm:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Open `http://localhost:3000` in your browser to view the site.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+bun build
+```
 
-## Learn More
+Or with npm:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### Start production server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+bun start
+```
 
-## Deploy on Vercel
+Or with npm:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Notes
+
+- The app uses the page router under `src/pages`.
+- The login page contains client-side state for toggling between login and register modes.
+- Navigation links include `/courses`, `/career`, `/blog`, `/about` even though those pages are not yet implemented in this repo.
+
+## Contribution
+
+Feel free to extend the landing page by adding real routes, backend integration, or additional features such as authentication and content pages.
+
+## License
+
+This project has no license configured in the repository. Add a `LICENSE` file if you want to publish it under an open-source license.
