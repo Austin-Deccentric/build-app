@@ -36,7 +36,7 @@ const AuthCard = () => {
         {/* Left Column: Image Card with Overlay Text (Hidden on Mobile) */}
         <div className="hidden md:block relative w-full min-h-[550px] rounded-2xl overflow-hidden shadow-inner">
           <Image
-            src={isLogin ? '/image_9912e1.jpg' : '/image_990ffc.jpg'}
+            src={isLogin ? '/images/login_girl.png' : '/images/register_girl.png'}
             alt="Student in classroom"
             fill
             priority
