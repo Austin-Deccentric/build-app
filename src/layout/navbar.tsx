@@ -13,7 +13,7 @@ const navLinks = [
   {name: 'About us', href: '/about'}
 ]
 
-const navbar = () => {
+const Navbar = () => {
   const router = useRouter();
   return (
     <div className={`navbar ${accentColor} lg:flex relative px-4 lg:px-32 shadow-none`}>
@@ -85,4 +85,4 @@ const navbar = () => {
   )
 }
 
-export default navbar
+export default Navbar
