@@ -7,7 +7,7 @@ import Link from 'next/link';
 const Footer = () => {
   const [email, setEmail] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle newsletter subscription logic
   };

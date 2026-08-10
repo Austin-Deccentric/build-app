@@ -16,11 +16,11 @@ const AuthCard = () => {
     password: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isLogin) {
       console.log('Logging in with:', { username: formData.username, password: formData.password, rememberMe });
