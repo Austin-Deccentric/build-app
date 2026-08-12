@@ -1,49 +1,86 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { FiEye, FiEyeOff } from 'react-icons/fi';
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  loginSchema,
+  RegistrationFormData,
+  registrationSchema,
+  LoginFormData
+} from "@/lib/schemas/schema";
 
 const AuthCard = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
-  const [formData, setFormData] = useState({
-    email: '',
-    username: '',
-    password: '',
+  const formSchema = isLogin ? loginSchema : registrationSchema;
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    clearErrors,
+    formState: { errors, isSubmitting },
+  } = useForm<RegistrationFormData | LoginFormData>({
+    resolver: zodResolver(formSchema),
+    mode: "onBlur",
+    reValidateMode: "onChange",
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+    },
   });
 
-  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const switchToLogin = () => {
+    setIsLogin(true);
+    setSuccessMessage("");
+    clearErrors();
+    reset({ username: "", email: "", password: "" });
   };
 
-  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (isLogin) {
-      console.log('Logging in with:', { username: formData.username, password: formData.password, rememberMe });
-    } else {
-      console.log('Registering with:', formData);
+  const switchToRegister = () => {
+    setIsLogin(false);
+    setSuccessMessage("");
+    clearErrors();
+    reset({ username: "", email: "", password: "" });
+  };
+
+  const onSubmit = async (data: RegistrationFormData) => {
+    try {
+      // console.log("Validated registration data:", _data);
+
+      // Send the data to your API or server action here.
+      // Example:
+      // await registerUser(data);
+
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      setSuccessMessage("Registration successful!");
+      reset();
+    } catch {
+      setSuccessMessage("");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 sm:p-8 font-sans">
       <div className="bg-white rounded-3xl shadow-xl overflow-hidden w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 p-4 md:p-6 gap-8">
-        
-        {/* Left Column: Image Card with Overlay Text (Hidden on Mobile) */}
         <div className="hidden md:block relative w-full min-h-[550px] rounded-2xl overflow-hidden shadow-inner">
           <Image
-            src={isLogin ? '/images/login_girl.png' : '/images/register_girl.png'}
+            src={isLogin ? "/images/login_girl.png" : "/images/register_girl.png"}
             alt="Student in classroom"
             fill
             priority
             className="object-cover transition-opacity duration-500"
           />
-          
-          {/* Overlay Text at Bottom */}
+
           <div className="absolute bottom-6 left-6 right-6 text-white z-10">
             <h3 className="text-2xl md:text-3xl font-bold leading-tight drop-shadow-md">
               Lorem Ipsum is simply
@@ -53,150 +90,171 @@ const AuthCard = () => {
             </p>
           </div>
 
-          {/* Gradient Overlay for Text Readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         </div>
 
-        {/* Right Column: Auth Form */}
         <div className="flex flex-col justify-center px-2 sm:px-6 py-4">
-          
-          {/* Header */}
           <p className="text-center text-gray-700 font-medium text-sm md:text-base mb-6">
             Welcome to lorem..!
           </p>
 
-          {/* Tab Switcher */}
           <div className="bg-[#A4DCDB]/40 p-1 rounded-full flex items-center max-w-xs mx-auto w-full mb-8">
             <button
               type="button"
-              onClick={() => setIsLogin(true)}
+              onClick={switchToLogin}
               className={`flex-1 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                 isLogin
-                  ? 'bg-[#49BBBD] text-white shadow-md'
-                  : 'text-white/90 hover:text-white'
+                  ? "bg-[#49BBBD] text-white shadow-md"
+                  : "text-white/90 hover:text-white"
               }`}
             >
               Login
             </button>
+
             <button
               type="button"
-              onClick={() => setIsLogin(false)}
+              onClick={switchToRegister}
               className={`flex-1 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                 !isLogin
-                  ? 'bg-[#49BBBD] text-white shadow-md'
-                  : 'text-white/90 hover:text-white'
+                  ? "bg-[#49BBBD] text-white shadow-md"
+                  : "text-white/90 hover:text-white"
               }`}
             >
               Register
             </button>
           </div>
 
-          {/* Description */}
           <p className="text-gray-500 text-xs md:text-sm text-left leading-relaxed mb-6">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
           </p>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-5">
-            
-            {/* Register-only Field: Email */}
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {!isLogin && (
               <div className="space-y-1.5">
-                <label className="block text-xs md:text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="email"
+                  className="block text-xs md:text-sm font-medium text-gray-700"
+                >
                   Email Address
                 </label>
+
                 <input
+                  id="email"
                   type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   placeholder="Enter your Email Address"
-                  required
+                  {...register("email")}
                   className="w-full px-5 py-3 rounded-full border border-[#49BBBD]/60 focus:border-[#49BBBD] focus:outline-none text-sm text-gray-700 placeholder-gray-300 transition-colors"
                 />
+
+                {errors.email && (
+                  <p className="text-error text-xs">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
             )}
 
-            {/* Username Field */}
             <div className="space-y-1.5">
-              <label className="block text-xs md:text-sm font-medium text-gray-700">
+              <label
+                htmlFor="username"
+                className="block text-xs md:text-sm font-medium text-gray-700"
+              >
                 User name
               </label>
+
               <input
+                id="username"
                 type="text"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
                 placeholder="Enter your User name"
-                required
+                {...register("username")}
                 className="w-full px-5 py-3 rounded-full border border-[#49BBBD]/60 focus:border-[#49BBBD] focus:outline-none text-sm text-gray-700 placeholder-gray-300 transition-colors"
               />
+
+              {errors.username && (
+                <p className="text-xs text-red-500">
+                  {errors.username.message}
+                </p>
+              )}
             </div>
 
-            {/* Password Field */}
             <div className="space-y-1.5">
-              <label className="block text-xs md:text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-xs md:text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
+
               <div className="relative">
                 <input
-                  type={showPassword ? 'text' : 'password'}
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
+                  id="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="Enter your Password"
-                  required
+                  {...register("password")}
                   className="w-full pl-5 pr-12 py-3 rounded-full border border-[#49BBBD]/60 focus:border-[#49BBBD] focus:outline-none text-sm text-gray-700 placeholder-gray-300 transition-colors"
                 />
+
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() => setShowPassword((current) => !current)}
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                 >
                   {showPassword ? <FiEyeOff size={18} /> : <FiEye size={18} />}
                 </button>
               </div>
+
+              {errors.password && (
+                <p className="text-xs text-red-500">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
 
-            {/* Login Options: Remember Me & Forgot Password */}
             {isLogin && (
               <div className="flex items-center justify-between text-xs text-gray-600 pt-1">
                 <label className="flex items-center gap-2 cursor-pointer select-none">
                   <input
                     type="checkbox"
                     checked={rememberMe}
-                    onChange={(e) => setRememberMe(e.target.checked)}
+                    onChange={(event) => setRememberMe(event.target.checked)}
                     className="rounded border-gray-300 text-[#49BBBD] focus:ring-[#49BBBD]"
                   />
-                  <span>Rememebr me</span>
+                  <span>Remember me</span>
                 </label>
+
                 <Link
                   href="/forgot-password"
                   className="text-gray-500 hover:text-gray-800 transition-colors"
                 >
-                  Forgot Password ?
+                  Forgot Password?
                 </Link>
               </div>
             )}
 
-            {/* Submit Button */}
+            {successMessage && (
+              <p className="text-sm text-green-600">{successMessage}</p>
+            )}
+
             <div className="flex justify-end pt-4">
               <button
                 type="submit"
-                className="w-full sm:w-auto px-10 py-3 bg-[#49BBBD] hover:bg-[#3db0b2] text-white font-semibold text-sm rounded-full shadow-md hover:shadow-lg transition-all duration-300"
+                disabled={isSubmitting}
+                className="w-full sm:w-auto px-10 py-3 bg-[#49BBBD] hover:bg-[#3db0b2] disabled:cursor-not-allowed disabled:opacity-60 text-white font-semibold text-sm rounded-full shadow-md hover:shadow-lg transition-all duration-300"
               >
-                {isLogin ? 'Login' : 'Register'}
+                {isSubmitting
+                  ? "Submitting..."
+                  : isLogin
+                    ? "Login"
+                    : "Register"}
               </button>
             </div>
-
           </form>
-
         </div>
-
       </div>
     </div>
   );
 };
 
 export default AuthCard;
+
