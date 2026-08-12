@@ -77,6 +77,7 @@ const AuthCard = () => {
             src={isLogin ? "/images/login_girl.png" : "/images/register_girl.png"}
             alt="Student in classroom"
             fill
+            sizes="50"
             priority
             className="object-cover transition-opacity duration-500"
           />
