@@ -19,7 +19,7 @@ const AuthCard = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
 
-  const formSchema = isLogin ? loginSchema : registrationSchema;
+  // const formSchema = isLogin ? loginSchema : registrationSchema;
 
   const {
     register,
@@ -27,8 +27,8 @@ const AuthCard = () => {
     reset,
     clearErrors,
     formState: { errors, isSubmitting },
-  } = useForm<RegistrationFormData | LoginFormData>({
-    resolver: zodResolver(formSchema),
+  } = useForm<RegistrationFormData >({
+    resolver: zodResolver(registrationSchema),
     mode: "onBlur",
     reValidateMode: "onChange",
     defaultValues: {
