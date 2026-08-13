@@ -8,11 +8,11 @@ import { IoIosArrowForward } from 'react-icons/io';
 
 const TestimonialCard = () => {
   return (
-    <section className="bg-white min-h-screen w-full flex items-center justify-center font-sans overflow-hidden py-24 px-6 md:px-12 lg:px-24">
+    <section className="bg-white min-h-screen w-full flex items-center justify-center font-sans overflow-hidden py-24 px-6 md:px-12 lg:px-32">
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24">
         
         {/* Left Column: Text Content & CTA */}
-        <div className="flex-1 max-w-xl z-10 w-full">
+        <div className="flex-1 z-10 w-full">
           {/* Section Subtitle */}
           <div className="flex items-center gap-4 text-[#8A8A8A] uppercase tracking-[0.2em] text-sm mb-6">
             <div className="w-16 h-[1px] bg-[#8A8A8A]"></div>
@@ -50,7 +50,7 @@ const TestimonialCard = () => {
         <div className="flex-1 relative w-full flex justify-center lg:justify-end mt-12 lg:mt-0 z-10">
           
           {/* Image Container */}
-          <div className="relative w-full max-w-[420px] aspect-[4/5]">
+          <div className="relative w-full max-w-[420px] aspect-4/5">
             <Image 
               src="/images/woman_with_books.png" 
               alt="Smiling woman holding folders" 
@@ -66,12 +66,12 @@ const TestimonialCard = () => {
           </div>
 
           {/* Floating Testimonial Card */}
-          <div className="absolute -bottom-16 lg:-bottom-12 lg:-left-24 bg-white rounded-2xl shadow-2xl w-[90%] sm:w-[500px] flex overflow-hidden z-30">
+          <div className="absolute -bottom-16 lg:-bottom-12 lg:-right-32 bg-white rounded-2xl shadow-2xl w-[90%] sm:w-[500px] flex overflow-hidden z-30">
             {/* Left Coral Accent Bar */}
             <div className="w-3 shrink-0 bg-[#F47E68]"></div>
             
             {/* Card Content */}
-            <div className="p-6 md:p-8 w-full flex flex-col justify-between bg-white">
+            <div className="p-6 md:p-8 w-full flex flex-col justify-right bg-white ">
               <div className="border-l-2 border-[#E5E5E5] pl-6 mb-6">
                 <p className="text-[#5F5F7E] text-base md:text-lg leading-relaxed font-medium">
                   "Thank you so much for your help. It's exactly what I've been looking for. You won't regret it. It really saves me time and effort. TOTC is exactly what our business has been lacking."

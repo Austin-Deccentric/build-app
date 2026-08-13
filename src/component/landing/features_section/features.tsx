@@ -7,13 +7,13 @@ import DiscussionsCard from "@/component/landing/features_section/discussion_car
 
 const Features = () => {
   return (
-    <div>
+    <>
       <ClassroomCard />
       <ForTechers />
       <AssessmentsCard />
       <ClassManagementSection />
       <DiscussionsCard />
-    </div>
+    </>
   );
 };
 

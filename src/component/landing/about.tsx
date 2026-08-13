@@ -38,7 +38,7 @@ const About = () => {
   return (
     <>
       {/* All-In-One Cloud Software */}
-      <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28 w-full">
+      <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-32 lg:py-28 w-full">
         <div className="mx-auto w-full ">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-2xl font-bold text-[#010514] sm:text-4xl lg:text-5xl">
@@ -148,7 +148,7 @@ const About = () => {
 
 
       {/* Physical classroom experience */}
-      <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28 w-full">
+      <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-32 lg:py-28 w-full">
         <div className="mx-auto grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <h2 className="max-w-xl text-2xl font-bold leading-tight text-[#010514] sm:text-4xl lg:text-5xl">

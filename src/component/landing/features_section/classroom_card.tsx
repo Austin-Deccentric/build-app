@@ -65,8 +65,8 @@ const features = [
 
 export default function ClassroomFeature() {
   return (
-    <section className="overflow-hidden bg-white px-4 py-16 sm:px-6 lg:py-24 w-full">
-      <div className="mx-auto max-w-7xl">
+    <section className="overflow-hidden bg-white px-4 py-16 sm:px-6 lg:py-24 lg:px-32 w-full ">
+      <div className="w-full">
         <header className="mb-12 text-center lg:mb-16">
           <h2 className="text-3xl font-extrabold text-indigo-950 sm:text-4xl">
             Our <span className="text-teal-400">Features</span>

@@ -13,7 +13,7 @@ const stats: Stat[] = [
 
 const Success = () => {
   return (
-    <section className="bg-white px-4 py-14 sm:px-8 sm:py-20 lg:px-20 lg:py-28 w-full">
+    <section className="bg-white px-4 py-14 sm:px-8 sm:py-20 lg:px-32 lg:py-28 w-full">
       <div className="mx-auto text-center">
         <h2 className="text-2xl font-bold text-[#010514] sm:text-4xl lg:text-5xl">
           Our Success
