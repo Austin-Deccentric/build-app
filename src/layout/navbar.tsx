@@ -16,7 +16,7 @@ const navLinks = [
 const Navbar = () => {
   const router = useRouter();
   return (
-    <div className={`navbar ${accentColor} lg:flex relative px-4 lg:px-32 shadow-none`}>
+    <div className={`navbar ${accentColor} lg:flex px-4 lg:px-32 shadow-none sticky top-0 z-50`}>
       <div className="navbar-start lg:flex-1">
     
    
@@ -45,10 +45,10 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end lg:flex-1 gap-2 sticky top-0 z-50">
-    {/* <div className="md:hidden "> */}
+    
     <Link href='/login' className="hidden md:inline-flex lg:inline-flex btn bg-white text-black border-0 rounded-full h-[35] transition hover:bg-black hover:text-white shadow-none">Login</Link>
     <Link href='/login' className="hidden md:inline-flex lg:inline-flex btn btn-neutral btn-outline rounded-2xl h-[35] bg-white/30 shadow-none border-none text-white hover:bg-white hover:text-black">Sign up</Link>
-    {/* </div> */}
+   
     <div className="dropdown max-w-fit">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
         <CiMenuBurger className="size-6" />
@@ -65,9 +65,9 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-      <div className='md:hidden lg:hidden flex justify-center gap-2'>
+      <div className='md:hidden lg:hidden flex gap-2'>
       <Link 
-      href= "/login"
+      href= {`/login`}
       className="btn bg-white text-black border-0 rounded-full h-[35] transition hover:bg-black hover:text-white shadow-none">
         Login
       </Link>
