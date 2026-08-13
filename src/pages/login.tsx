@@ -7,10 +7,10 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  loginSchema,
+  // loginSchema,
   RegistrationFormData,
   registrationSchema,
-  LoginFormData
+  // LoginFormData
 } from "@/lib/schemas/schema";
 
 const AuthCard = () => {
@@ -82,16 +82,6 @@ const AuthCard = () => {
             className="object-cover transition-opacity duration-500"
           />
 
-          <div className="absolute bottom-6 left-6 right-6 text-white z-10">
-            <h3 className="text-2xl md:text-3xl font-bold leading-tight drop-shadow-md">
-              Lorem Ipsum is simply
-            </h3>
-            <p className="text-sm md:text-base font-medium opacity-90 mt-1 drop-shadow-sm">
-              Lorem Ipsum is simply
-            </p>
-          </div>
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         </div>
 
         <div className="flex flex-col justify-center px-2 sm:px-6 py-4">
@@ -124,10 +114,6 @@ const AuthCard = () => {
               Register
             </button>
           </div>
-
-          <p className="text-gray-500 text-xs md:text-sm text-left leading-relaxed mb-6">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          </p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {!isLogin && (
