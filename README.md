@@ -1,7 +1,7 @@
 # TOTC Landing Experience
 
 This repository contains a Next.js landing page for the TOTC online education platform. It is built with React, TypeScript, Tailwind CSS, DaisyUI, and modern Next.js page routing.
-
+Live at: [Totc Live](https://build-app-nu.vercel.app/)
 ## Project Overview
 
 The app renders a marketing-driven landing page with the following sections:
